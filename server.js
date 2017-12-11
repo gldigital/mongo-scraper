@@ -12,7 +12,10 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 3000;
+// var PORT = 3000;
+var PORT = process.env.PORT || 3000;
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newscraper";
 
 // Initialize Express
 var app = express();
@@ -30,7 +33,7 @@ app.use(express.static("public"));
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 
-mongoose.connect("mongodb://heroku_vlm1v4z2:bmpf2erok6qhquiml9fft9ovv9@ds137336.mlab.com:37336/heroku_vlm1v4z2", {
+mongoose.connect(MONGODB_URI, {
   useMongoClient: true
 });
 
