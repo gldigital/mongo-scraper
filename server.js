@@ -29,8 +29,8 @@ app.use(express.static("public"));
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-mongoose.connect("mongodb://MONGODB_URI", {
+
+mongoose.connect("mongodb://heroku_vlm1v4z2:bmpf2erok6qhquiml9fft9ovv9@ds137336.mlab.com:37336/heroku_vlm1v4z2", {
   useMongoClient: true
 });
 
